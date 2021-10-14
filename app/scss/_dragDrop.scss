@@ -1,0 +1,28 @@
+.drag-drop {
+    &__zone {
+        border: 2px dotted yellow;
+        padding: 1rem;
+        border-radius: .5rem;
+        opacity: .5;
+        display: flex;
+        margin: 0 1rem;
+        background-color: rgba(206, 206, 206, 0.678);
+
+        &.active {
+            opacity: 1;
+        }
+    }
+
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 5rem;
+        height: 5rem;
+        color: yellowgreen;
+        border: 1px solid yellowgreen;
+        border-radius: .5rem;
+        background-color: #fff;
+        margin-right: 1.5rem;
+    }
+}

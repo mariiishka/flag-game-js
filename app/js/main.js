@@ -1,31 +1,19 @@
 
-
-// const box = document.createElement('div')
-// box.classList.add('bg-dark','p-4','text-white', 'mt-2')
-// box.innerText = 'Hello!'
-
-// const button = document.querySelectorAll('.btn')
-// col.forEach(cols => {
-//     insertAdjacentHTML('afterend', box)
-// })
-
-// button.forEach(btn => {
-//     btn.addEventListener('click', function() {
-//         this.insertAdjacentElement('afterend', box.cloneNode(true))
-//     })
-// })
-
+// GLOBAL
 const $ = {};
 window.$ = $;
 
+// ARRAYS
 const colors = {red: 'bg-danger', yellow: 'bg-warning', blue: 'bg-primary'}
 
 const btns = [
-    {title: 'Show Text',  background: `${colors.yellow}`,  color: 'text-black', data: 'data-text'},
+    {title: 'Show Text',  background: `${colors.yellow}`,  color: 'text-black', data: 'data-text="true"'},
     {title: 'Open Modal', background: `${colors.blue}`,    color: 'text-white', data: 'data-open="true"'},
     {title: 'Delete',     background: `${colors.red}`,     color: 'text-white', data: 'data-delete="true"'}
 ]
 
+
+// create elements
 function _createButtons() {
 
     const buttons = document.createElement('div');
@@ -43,10 +31,11 @@ function _createButtons() {
 }
 
 function _createModal(options) {
-    const dmodal = document.createElement('div')
-    dmodal.classList.add('modal-my')
+    const modal = document.createElement('div')
+    modal.classList.add('modal-my')
+    modal.setAttribute('id', `${options.id}`)
 
-    dmodal.insertAdjacentHTML('afterbegin', `
+    modal.insertAdjacentHTML('afterbegin', `
         <div class="modal-my__overlay" data-close="true">
             <div class="modal-my__content">
                 <div class="modal-my__header">
@@ -60,10 +49,23 @@ function _createModal(options) {
         </div>
     `)
 
-    document.body.appendChild(dmodal)
-    return dmodal
+    document.body.appendChild(modal)
+    return modal
 }
 
+function _createArticle(options) {
+    const article = document.createElement('div')
+
+    article.classList.add('article', 'text-center', 'py-45', 'bg-light', 'text-success', 'my-4')
+    article.insertAdjacentHTML('afterbegin', `
+        <h2 class="mb-3 text-primary h2">${options.caption}</h2>
+        <p>${options.text}</p>
+    `)
+
+    return article
+}
+
+//objects
 $.modal = function(options) {
     const $modal = _createModal(options);
     let closing = false;
@@ -72,7 +74,7 @@ $.modal = function(options) {
     const modal = {
         open() {
             if (destroyed) {
-                return console.log('modal is destroyed')
+                return alert('modal is destroyed')
             } 
             !closing && $modal.classList.add('open');
         },
@@ -85,6 +87,11 @@ $.modal = function(options) {
                 $modal.classList.remove('hide');
                 closing = false
             }, 200)
+        },
+        
+        destroy() {
+            destroyed = true
+            $modal.remove()
         }
     }
 
@@ -101,13 +108,76 @@ $.modal = function(options) {
     
 }
 
-const cols = document.querySelectorAll('.col');
-const render = _createButtons();
+$.render = function() {
+    const cols = document.querySelectorAll('.col-buttons');
+    const render = _createButtons();
 
-cols.forEach(col => {
+    cols.forEach(col => {
     col.appendChild(render.cloneNode(true)) 
- });
+ });   
+}
 
- const modal = $.modal({
+$.article = function(options) {
+    const $article = _createArticle(options); 
+    const container = document.querySelectorAll('.col');
+    
+    container.forEach(container => {
+        const text = container.querySelector('.div')
+        const btnText = container.querySelector('[data-text]')
+        const btnDel = container.querySelector('[data-delete]')
+        var exist = false
+
+        const check = function() {
+            if (exist) {
+                btnText.setAttribute('disabled', '');
+                btnDel.removeAttribute('disabled');
+
+                text.classList.add('text-decoration-line-through');
+            } else {
+                btnText.removeAttribute('disabled');
+                btnDel.setAttribute('disabled', '');
+
+                text.classList.remove('text-decoration-line-through');
+            }
+        }
+
+        const showText = event => {
+            if (event.target.dataset.text) {
+                text.insertAdjacentElement('afterend', $article.cloneNode(true))
+                exist = true
+
+                check()
+
+            } else if (event.target.dataset.delete) {
+                container.querySelector('.article').remove()
+                exist = false
+
+                check()
+            }
+        }
+
+        container.addEventListener('click', showText)
+        check()
+    
+    })
+
+    
+
+    
+
+    
+}
+
+const render = $.render()
+const modal = $.modal({
+    id: 'modal-1',
     title: 'modal'
 });
+
+const article = $.article({
+    caption: 'Text is shown',
+    text: 'Congrats!'
+})
+
+
+
