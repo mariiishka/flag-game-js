@@ -1,8 +1,11 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
-@import "global";
 @import "fonts";
 @import "modal";
 @import "dragDrop";
+@import "sky";
+@import "main-list";
+@import "dom";
+@import "header";
 
 %flex {
     display: flex;
@@ -56,3 +59,4 @@ body {
     margin: 0;
     padding: 0;
 }
+

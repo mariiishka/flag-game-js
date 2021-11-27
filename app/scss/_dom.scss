@@ -1,0 +1,31 @@
+    .wrapper {
+        margin: 50px auto 0 10px;
+    }
+
+    .autos {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 20px;
+        padding: 20px;
+    }
+
+    .autoCard {
+        background: #fff;
+        padding: 20px;
+    }
+
+    .button {
+        background: #1b1b1b;
+        color: #fff;
+        padding: 10px 30px;
+        border: 0;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .h1 {
+        text-align: left;
+        color: #fff;
+        margin: 20px 10px 10px;
+        font-weight: bold;
+    }

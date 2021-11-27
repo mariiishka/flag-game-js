@@ -1,11 +1,19 @@
 .drag-drop {
+    &__wrapper {
+        background-color: rgb(120, 26, 243);
+        width: 100vw;
+        height: 100vh;
+        @extend %flex;
+        justify-content: center; 
+    }
+
     &__zone {
         border: 2px dotted yellow;
-        padding: 1rem;
         border-radius: .5rem;
         opacity: .5;
         display: flex;
-        margin: 0 1rem;
+        flex-wrap: wrap;
+        // justify-content: center;
         background-color: rgba(206, 206, 206, 0.678);
 
         &.active {
@@ -23,6 +31,29 @@
         border: 1px solid yellowgreen;
         border-radius: .5rem;
         background-color: #fff;
-        margin-right: 1.5rem;
+        margin: 1rem;
+    }
+}
+
+.drag {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-20%, -50%);
+
+    &__container {
+        background-color: #fff;
+        width: 400px;
+        height: 550px;
+        @extend %flex;
+        justify-content: center;
+        font-size: larger;
+        font-weight: bold;
+        border-radius: .5rem;
+        box-shadow: 6px 6px 10px rgba(63, 63, 63, 0.63);
+    }
+
+    &:hover {
+        cursor: move;
     }
 }
