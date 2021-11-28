@@ -1,4 +1,4 @@
-const arr = [
+let arr = [
     {name: 'Alex', age: 28},
     {name: 'Jeck', age: 20},
     {name: 'Lola', age: 23},
@@ -67,14 +67,14 @@ function _reduceRight() {
 
 // 5
 function _find() {
-    // const find = arr.find((item) => item.age == 20)
-    // console.log(find)
+    const find = arr.find((item) => item.age == 20)
+    console.log(find)
 
-    for (let i = 0; i < arr.length; i++) {
-        if(arr[i].age == 20) {
-            console.log(arr[i])
-        }
-    }
+    // for (let i = 0; i < arr.length; i++) {
+    //     if(arr[i].age == 20) {
+    //         console.log(arr[i])
+    //     }
+    // }
 
 }
 
@@ -119,9 +119,11 @@ function _everySome() {
     let everySome = arrNum.every(item => item % 2 == 0)
     console.log(everySome)
 
-    everySome = arrNum.some(item => item % 2 == 0)
+    everySome = arrNum.some(item => item == 4)
     console.log(everySome)
 }
+
+_everySome()
 
 // 8
 function _includes() {
