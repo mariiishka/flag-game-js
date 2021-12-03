@@ -22,7 +22,7 @@ function _tooltip(options) {
         const toHtml = () => {
             document.body.insertAdjacentHTML('beforeend', `
                 <div class="tooltipp" data-tooltip-value="${wrapperValue}" style="color: ${options.color || 'cadetblue'}; background: ${options.background || 'antiquewhite'}">
-                    <p>${tooltipText}</p>
+                    <p>${tooltipText || 'Tooltip'}</p>
                 </div>
             `)
         }
