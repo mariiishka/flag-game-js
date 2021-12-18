@@ -1,0 +1,79 @@
+@import "countries";
+
+.flags {
+    &-start {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        background-color: rgb(57, 4, 126);
+        color: #e0ffff;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all .3s ease-out;
+
+        &.hiding {
+            animation-name: fadeOut;
+            animation-duration: 3s;
+            // animation-iteration-count: infinite;
+
+            button {
+                animation-name: toFly;
+                animation-duration: 3s;
+                // animation-iteration-count: infinite;
+            }
+        }
+
+        button {
+            width: 150px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            // margin: auto;
+
+            border: 2px solid #e0ffff;
+        }
+    }
+
+    &-game {
+        width: 100vw;
+        height: 100vh;
+        background-color: bisque;
+    }   
+}
+
+
+.hide {
+    display: none;
+}
+
+
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        display: block;
+    }
+
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes toFly {
+    from {
+        margin-left: 0;
+    }
+
+    to {
+        margin-left: 100%;
+        display: none;
+    }
+}

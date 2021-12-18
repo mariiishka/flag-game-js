@@ -1,0 +1,29 @@
+.countries {
+    .country {
+        margin: auto;
+        padding: .5rem 1rem;
+        background-color: brown;
+        color: #fff;
+        text-align: center;
+        border-radius: 1.25rem;
+        box-shadow: none;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+            box-shadow: 2px 3px 5px 0px rgba(49, 49, 49, 0.897);
+        }
+
+        &__wrapper {
+            display: flex;
+            cursor: pointer;
+        }
+
+        &.true {
+            box-shadow: 2px 3px 16px 3px green;
+        }
+
+        &.false {
+            box-shadow: 2px 3px 16px 3px red;
+        }
+    }
+}

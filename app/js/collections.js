@@ -36,18 +36,20 @@ function _each(arr, fun) {
 // 2
 function _map() {
 
-    // const newArr = arr.map((item, i, arr) =>
-    //     item.name + '[' + i + ']' + ' of ' + '"' + arr + '"'
-    // )
+    const newArr = arr.map((item, i, arr) =>
+        item.name + '[' + i + ']' + ' of ' + '"' + arr + '"'
+    )
 
-    const newArr = []
-    for (let i = 0; i < arr.length; i++) {
-        newArr.push(arr[i]);
+    // const newArr = []
+    // for (let i = 0; i < arr.length; i++) {
+    //     newArr.push(arr[i].name);
         
-    }
+    // }
     console.log(newArr)
 
 }
+
+_map()
 
 // 3
 function _reduce() {
@@ -163,9 +165,8 @@ function _min() {
 
 // 12
 function _shuffle(arr) {
-    let currentIndex = arr.length
 
-    for (let i = currentIndex - 1; i > 0; i--) {
+    for (let i = arr.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var temp = arr[i];
         arr[i] = arr[j];
@@ -174,6 +175,8 @@ function _shuffle(arr) {
 
     console.log(arr)
 }
+
+_shuffle(arrNum)
 
 // 13
 function _set() {
