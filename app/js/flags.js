@@ -294,7 +294,7 @@ function fuckingShit() {
         return arrId
     })
 
-    flag.innerHTML = newArr[0].url
+    flag.innerHTML = `<img src="../img/${newArr[0].url}.png" alt="flag">`
     let rand = randomNumber(1, 5) - 1
     country[rand].innerHTML = newArr[0].name 
 }
@@ -308,11 +308,10 @@ btnStart.addEventListener('click', () => {
 })
 let score = 0;
 function asshole(event) {
-    newArr.splice(0, 1)
     let cunt = flagsEurope.find((c) => {
-       return c.url == flag.innerText
+       return c.url == newArr[0].url
     }).name
-
+    
     if(event.target.innerText == cunt) {
         event.target.classList.add('true')
         score++
@@ -325,8 +324,8 @@ function asshole(event) {
             event.target.classList.remove('false')
         }, 500)
     }
+    newArr.splice(0, 1)
 }
-
 
 country.forEach((count) => {
     count.addEventListener('click', () => {
