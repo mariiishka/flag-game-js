@@ -221,6 +221,7 @@ const modal = $.modal({
     title: 'modal'
 });
 
+console.log(modal)
 
 const modal2 = $.modal({
     id: 'modal-2',

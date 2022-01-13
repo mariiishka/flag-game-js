@@ -1,6 +1,6 @@
 @import "countries";
 
-.flags {
+.flag {
     &-start {
         position: absolute;
         top: 0;
@@ -45,18 +45,40 @@
         width: 100vw;
         height: 100vh;
         background-color: bisque;
+        transition: all .3s ease-in;
         .flag {
-            min-height: 440px;
+            display: flex;
+            min-height: 450px;
             margin-bottom: 3rem;
+        }
+        img {
+            margin: auto;
+            width: 450px;
+            height: 100%;
+        }
+
+        &.hiding {
+            animation-name: fadeIn;
+            animation-duration: 4.5s;
+            // animation-iteration-count: infinite;
         }
     }   
 }
 
+.restart {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
 
-.hide {
-    display: none;
+    background-color: #e0ffff;
+    color: #1a1818;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: .5rem .8rem;
+    border-radius: .5rem;
+    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, .3);
+    font-size: 14px;
 }
-
 
 
 @keyframes fadeOut {
@@ -68,6 +90,18 @@
     to {
         opacity: 0;
         display: none;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        display: none;
+    }
+
+    to {
+        opacity: 1;
+        display: block;
     }
 }
 

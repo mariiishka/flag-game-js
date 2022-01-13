@@ -13,10 +13,6 @@ function fixedHeader() {
 }
 
 
-
-
-
-
 window.addEventListener('scroll', () => {
     fixedHeader();
 })
