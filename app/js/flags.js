@@ -153,3 +153,4 @@ const game = $.game({
     btnRestart: 'js-restart'
 })
 
+let learnGit;
