@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="css/style.min.css">
-</head>
-<body>
-    <header class="header" id="header">
-        <div class="container">
-            dfdf
-        </div>
-    </header>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Flags</title>
+		<link rel="stylesheet" href="./css/style.min.css">
+	</head>
+	<body>
 
-    <div class="box">
-        box
-    </div>
-    <div id="d">
-        <ul class="main-list">
-            <li><a href="pages/cards.html" data-tooltip="tool1" data-tooltip-text="Tooltip">Карточки</a></li>
-            <li><a href="pages/drag-drop.html" data-tooltip="tool2" data-tooltip-text="Tooltip2">Перетаскивание</a></li>
-            <li><a href="pages/dom.html" data-tooltip="tool3" data-tooltip-text="Tooltip3">Манипуляции с DOM</a></li>
-            <li><a href="pages/calc.html" data-tooltip="tool4" data-tooltip-text="Калькулятор">Калькулятор</a></li>
-            <li><a href="pages/flags.html" data-tooltip="tool5">Флаги</a></li>
-        </ul>
-    </div>
-    
-    <script src="js/header.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/collections.js"></script>
-    <script src="js/n.js"></script>
-</body>
+		<div class="flag-container flag-start">
+			<button class="js-start">Europe</button>
+		</div>
+		<div class="flag-game">
+			<div class="button restart js-restart">restart</div>
+			<div class="flag js-flag d-flex justify-content-center"></div>
+			<div class="countries">
+				<div class="row">
+					<div class="col">
+						<div class="country__wrapper">
+							<div class="country js-country"></div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="country__wrapper">
+							<div class="country js-country"></div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="country__wrapper">
+							<div class="country js-country"></div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="country__wrapper">
+							<div class="country js-country"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="js-count">Score: 0</div>
+		</div>
+		<script type="module" src="./js/flags.js"></script>
+	</body>
 </html>

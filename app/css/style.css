@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+  }
+
+  html {
+      font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .page__section {
+      margin-top: 30px;
+  }
+
+  .rating {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 220px);
+    grid-template-rows: repeat(5, 245px);
+    gap: 40px 10px;
+  }
+
+  .rating__card {
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .rating__card-content {
+    position: relative;
+    padding: 10px 10px 16px;
+
+    border-radius: 10px;
+    z-index: 1;
+
+    transition: transform .5s linear 1s;
+  }
+
+  .rating__card:hover .rating__card-content {
+    background-color: #eee;
+    transform: scale(1.2);
+
+    z-index: 2;
+}
+
+  .rating__person {
+    position: relative;
+  }
+
+.rating__person-photo {
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+
+    transition: border-radius 0.3s linear 1s;
+}
+
+.rating__card:hover .rating__person-photo {
+    border-radius: 60px;
+}
+
+.rating__person-number {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+
+    font-size: 16px;
+    font-weight: 700;
+    color: #8b0000;
+
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.rating__person-name {
+    margin-top: 8px;
+
+    font-weight: 700;
+    font-size: 20px;
+    color: #2f4f4f;
+}
+
+.rating__person-income {
+    visibility: hidden;
+    margin-top: 9px;
+
+    font-size: 18px;
+}
+
+.rating__card:hover .rating__person-income {
+    visibility: visible;
+}
+
+@media screen and (min-width: 1000px) {
+    .rating {
+        grid-template-columns: repeat(4, 220px);
+        grid-template-rows: repeat(3, 245px);
+    }
+}
