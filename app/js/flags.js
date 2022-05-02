@@ -63,7 +63,7 @@ $.game = function(params) {
 				return arrId
 			})
 
-			params.flag.innerHTML = `<img src="../img/${params.continent}/${newArr[0].url}.png" alt="flag">`
+			params.flag.innerHTML = `<img src="./img/${params.continent}/${newArr[0].url}.png" alt="flag">`
 			let rand = _randomNumber(1, 5) - 1
 			params.btnsCountry[rand].innerHTML = newArr[0].name 
 		},
