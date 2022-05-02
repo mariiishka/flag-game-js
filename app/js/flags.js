@@ -1,6 +1,8 @@
 import {data} from './data.js'
 import {_shuffle, _randomNumber} from './global.js'
 
+const BASE_URL = 'https://mariiishka.github.io/flads-data/flags.json'
+
 const $ = {};
 window.$ = $;
 
@@ -27,7 +29,7 @@ $.game = function(params) {
 		}
 	}
 
-	data('../json/flags.json', getArray)
+	data(BASE_URL, getArray)
 
 	const game = {
 		
@@ -52,7 +54,7 @@ $.game = function(params) {
 			params.btnsCountry.forEach((cont) => {
 				let arrLength = arrId.length
 				let randomNum = arrId[_randomNumber(1, arrLength -1)]
-        
+
 				cont.innerHTML = flagsContinent[randomNum].name
 
 				
